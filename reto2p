@@ -1,0 +1,26 @@
+# Función para validar la longitud de una cadena
+def validar_longitud(cadena, min, max):
+    return min <= len(cadena) <= max
+
+# Función para registrar un nuevo usuario
+def registrar_usuario():
+    nombre = input("Ingrese su nombre(s): ")
+    apellidos = input("Ingrese su(s) apellido(s): ")
+    telefono = input("Ingrese su número de teléfono (10 dígitos): ")
+    email = input("Ingrese su correo electrónico: ")
+
+    # Validar la información ingresada
+    if not (validar_longitud(nombre, 5, 50) and validar_longitud(apellidos, 5, 50) and validar_longitud(email, 5, 50) and len(telefono) == 10 and telefono.isdigit()):
+        print("Por favor, ingrese datos válidos.")
+        return
+
+    # Mostrar un mensaje de bienvenida
+    print(f"Hola {nombre} {apellidos}, en breve recibirás un correo a {email}")
+
+# Solicitar la cantidad de usuarios a registrar
+n = int(input("¿Cuántos usuarios desea registrar? "))
+
+# Registrar a N usuarios
+for i in range(n):
+    print(f"Ingrese los datos del usuario {i+1}:")
+    registrar_usuario()
